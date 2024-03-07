@@ -28,16 +28,16 @@ const newGame = () => {
 
 
 const shift = (idx) => {
-    if (parseInt(idx/3) == parseInt((idx-1)/3) && grid[idx-1] == 8) {
+    if (grid[idx-1] == 8) {
         grid[idx-1] = grid[idx];
         grid[idx] = 8;
-    } else if (parseInt(idx/3) == parseInt((idx+1)/3) && grid[idx+1] == 8) {
+    } else if (grid[idx+1] == 8) {
         grid[idx+1] = grid[idx];
         grid[idx] = 8;
-    } else if (idx+3 < 9 && grid[idx+3] == 8) {
+    } else if (grid[idx+3] == 8) {
         grid[idx+3]=grid[idx];
         grid[idx] =8;
-    }else if (idx+3 >= 0 && grid[idx-3] == 8) {
+    }else if (grid[idx-3] == 8) {
         grid[idx-3]=grid[idx];
         grid[idx] =8;
     }
