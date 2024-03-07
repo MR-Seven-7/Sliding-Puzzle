@@ -28,9 +28,6 @@ const newGame = () => {
 
 
 const shift = (idx) => {
-    console.log(idx);
-    console.log(grid);
-    console.log(idx/3 == (idx+1)/3, grid[idx-1] == 8)
     if (parseInt(idx/3) == parseInt((idx-1)/3) && grid[idx-1] == 8) {
         grid[idx-1] = grid[idx];
         grid[idx] = 8;
@@ -44,7 +41,6 @@ const shift = (idx) => {
         grid[idx-3]=grid[idx];
         grid[idx] =8;
     }
-    console.log(grid);
     display();
 }
 
@@ -71,9 +67,11 @@ const display = () => {
         gridDiv.appendChild(cell);
     }
     document.querySelector('.grid').replaceWith(gridDiv);
-    if (checkWin()) {
-        alert("Congratulations! You solved the puzzle! Click on New Game to continue playing !!")
-    }
+    setTimeout(() => {
+        if (checkWin()) {
+            alert("Congratulations! You solved the puzzle! Click on New Game to continue playing !!");
+        }
+    }, 10);
 }
 newGame();
 display();
